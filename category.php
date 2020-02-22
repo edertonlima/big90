@@ -1,13 +1,28 @@
-<h1><strong><?php echo $category->name; ?></strong></h1>
+<h1>
+	<?php echo $category->name; ?>
+	<?php if($posts){ ?>
+		<span><?php echo count($posts); ?> resultados</span>
+	<?php } ?>
+</h1>
 
+<?php
+// filro
+if($posts){
 
+	foreach ($posts as $key => $post) { 
+
+		$filtro['localizacao'][$post->localizacao_estado]++;
+
+	}
+}
+//var_dump($filtro);
+?>
 
 
 <table>
 	<tr valign="top">
 		<td width="200" valign="">
 			<h3>Categorias</h3>
-
 			<ul>
 				<?php 
 					$subcategories = get_subcategories($category->id,'null');
@@ -20,6 +35,36 @@
 					}
 				?>
 			</ul>
+
+			<?php if($posts){ ?>
+			<h3>Custo do frete</h3>
+			<ul>
+				<?php 
+					//$subcategories = get_subcategories($category->id,'null');
+					//if($subcategories){
+						//foreach ($subcategories as $key => $list_subcategory) { ?>
+
+							<li><a href="<?php echo $current_url . '?frete=gratis'; ?>">Grátis (<?php echo count($posts); ?>)</a></li>
+
+						<?php //}
+					//}
+				?>
+			</ul>
+			<?php }?>
+
+			<?php if($filtro['localizacao']){ ?>
+			<h3>Localização</h3>
+			<ul>
+				<?php 
+					
+				foreach ($filtro['localizacao'] as $key => $value) { ?>
+
+					<li><a href="<?php echo $current_url . '?frete=gratis&localizacao=' . $key; ?>"><?php echo $key . ' (' . $value . ')'; ?></a></li>
+
+				<?php }	?>
+			</ul>
+		<?php } ?>
+
 		</td>
 		<td width="20"></td>
 		<td>

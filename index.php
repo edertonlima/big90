@@ -5,7 +5,8 @@
 
 	if ($_GET) {
 		$url = explode('/', $_GET['url']);
-		var_dump($url);
+		$current_url =  $url_base.$_GET['url'];
+		//var_dump($url);
 		//var_dump(count($url));
 
 		if(count($url) == 1){
@@ -15,7 +16,7 @@
 			$category = get_category($url[0]);
 			$posts = get_posts($category->id);
 			//var_dump($category);
-			var_dump($posts);
+			//var_dump($posts);
 
 		}else{
 			if(count($url) > 1){
@@ -27,7 +28,7 @@
 					$page = 'single';				
 					$category = get_category($url[0]);
 					$posts = get_post($code_post[1]);
-					var_dump($posts);
+					//var_dump($posts);
 
 				}else{
 

@@ -18,6 +18,18 @@
 </h1>
 
 
+<?php
+// filro
+if($posts){
+
+	foreach ($posts as $key => $post) { 
+
+		$filtro['localizacao'][$post->localizacao_estado]++;
+
+	}
+}
+//var_dump($filtro);
+?>
 
 
 <table>
@@ -37,7 +49,35 @@
 						<?php }
 					?>
 				</ul>
+			<?php } ?>
 
+			<?php if($posts){ ?>
+			<h3>Custo do frete</h3>
+			<ul>
+				<?php 
+					//$subcategories = get_subcategories($category->id,'null');
+					//if($subcategories){
+						//foreach ($subcategories as $key => $list_subcategory) { ?>
+
+							<li><a href="<?php echo $current_url . '?frete=gratis'; ?>">Grátis (<?php echo count($posts); ?>)</a></li>
+
+						<?php //}
+					//}
+				?>
+			</ul>
+			<?php }?>
+
+			<?php if($filtro['localizacao']){ ?>
+			<h3>Localização</h3>
+			<ul>
+				<?php 
+					
+				foreach ($filtro['localizacao'] as $key => $value) { ?>
+
+					<li><a href="<?php echo $current_url . '?frete=gratis&localizacao=' . $key; ?>"><?php echo $key . ' (' . $value . ')'; ?></a></li>
+
+				<?php }	?>
+			</ul>
 			<?php } ?>
 
 		</td>
