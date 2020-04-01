@@ -1,0 +1,144 @@
+html {
+	font-size: 100%; 
+}
+
+body {
+	position: relative;
+	min-height: 100vh;
+	//min-width: $width;
+	background: #ffffff;
+	padding-top: 100px;
+	background-color: #f5f5f5;
+	@include box-sizing;
+}
+
+body * {
+	font-family: $font-family;
+	color: $cor-txt;
+	line-height: $font-size+.25;
+	font-weight: $light;
+	font-size: $font-size; 
+}
+
+.container {
+	max-width: $width; 
+	width: 100%;//$width; 
+	//width: 100%;
+	padding: $padding-container;
+	margin: 0 auto;
+	position: relative;
+	background-color:#ffffff;
+	@include box-sizing;
+	@include clear;
+}
+
+.row {
+	display: block;
+	@include clear();
+
+	&:not(.no-padding){
+		margin-right: ($padding-col)*(-1);
+		margin-left: ($padding-col)*(-1);
+
+		[class*="col-"] {
+			padding-right: $padding-col; 
+			padding-left: $padding-col;
+		}
+	}
+
+	&.no-padding {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	[class*="col-"] {
+		float: left;
+		@include box-sizing();
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	@for $i from 1 through 12 {
+		.col-#{$i} {
+			width: $i*(100%/12);
+		}
+	}
+
+	@for $i from 1 through 12 {
+		.col-m-#{$i} {
+			margin-left: $i*(100%/12);
+		}
+	}
+
+	.col-4:nth-child(3n+1) {
+		@include clear;
+	}
+
+	&.row-mini {
+		margin-right: -15px;
+		margin-left: -15px;
+
+		[class*="col-"] {
+			padding-right: 15px; 
+			padding-left: 15px;
+		}
+	}
+}
+
+.box-section {
+	@include clear;
+	@include box-sizing;
+	width: 100%;
+	position: relative;
+
+	&.margin-top {
+		margin-top: 80px;
+	}
+
+	.conteudo {
+		text-align: justify;
+		@include box-sizing;
+
+		ul {
+
+		}
+
+		p {
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+.bg-imagem {
+	@include cover;
+}
+
+.parallax {
+	background-attachment: fixed;
+}
+
+.box-vertical {
+	display: table;
+	height: 100%;
+	width: 100%;
+
+	.conteúdo-vertical {
+		display: table-cell;
+	}
+
+	&.vertical-center {
+		.conteúdo-vertical {
+			vertical-align: middle;
+		}
+	}
+
+	&.vertical-bottom {
+		.conteúdo-vertical {
+			vertical-align: bottom;
+		}
+	}
+}

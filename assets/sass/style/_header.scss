@@ -1,0 +1,42 @@
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	padding: 20px 0;
+	background-color: #ffffff;
+	@include animacao-slow;
+}
+
+.breadcrumbs {
+
+	.container {
+		background: none;
+		padding: 15px 0px;
+	}
+
+	ul {
+
+		li {
+			display: inline-block;
+
+			i.fa-home {
+
+			}
+
+			i:not(.fa-home) {
+				color: $cor-txt-claro;
+				font-size: 10px;
+				padding: 0 5px;
+				position: relative;
+				top: -2px;
+			}
+
+			a, span {
+				font-weight: $light;
+				font-size: 1rem;
+			}
+		}
+	}
+}

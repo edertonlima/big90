@@ -53,35 +53,7 @@
 	echo '<hr>';
 ?>
 
-<style type="text/css">
-	body {
-		padding: 20px;
-	}
-	a {
-		padding: 5px 10px;
-		color: #000000;
-		display: inline-block;
-		text-decoration: none;
-	}
-	a:hover {
-		color: #ff0000;
-	}
-
-	a.button {
-		background-color: #f1f1f1;
-	}
-
-	a.button:hover {
-		background-color: #ff0000;
-		color: #ffffff;
-	}
-
-	h1 span {
-		display: block;
-		font-size: 14px;
-		font-weight: normal;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css" media="screen" />
 
 <?php
 	include 'menu.php';

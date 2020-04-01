@@ -1,0 +1,124 @@
+.single-produto {
+	.row {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.col-4, .col-8 {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	.col-8 {
+		border-right: $border-col;
+	}
+
+	.galeria {
+		padding: 0 50px;
+
+		img {
+			width: 100%;
+		}
+
+		.paginacao {
+			margin-top: 20px;
+			display: block;
+			text-align: center;
+
+			span{
+				display: inline-block;
+				border: 1px solid $azul;
+				margin: 0 5px;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+
+				&.active{
+					background-color: $azul;
+				}
+			}
+		}
+	}
+}
+
+.border-full {
+	padding: 40px;
+	border-top: $border-col;
+	border-bottom: $border-col;
+	margin: 0 -30px 0 -40px;
+
+	&.no-border-top {
+		border-top: 0;
+	}
+}
+
+.info-destaque {
+	display: block;
+	text-align: center;
+	position: relative;
+	padding-right: 0;
+	padding-left: 0;
+	margin-top:45px;
+
+	i {
+		position: absolute;
+		font-size: 26px;
+		left: 50%;
+		margin-left: -15px;
+		top: -16px;
+		color: $amarelo;
+	}
+
+	span {
+		width: 30%;
+		display: inline-block;
+		line-height: 40px;
+		font-weight: $bold;
+		font-size: 1.5rem;
+		border-left: $border-col;
+		@include box-sizing;
+
+		&:nth-child(2) {
+			border: none;
+		}
+	}
+
+	a {
+		color: $azul;
+		border: $border-col;
+		font-weight: $light;
+		position: absolute;
+		bottom: -11px;
+		width: 33.333%;
+		left: 50%;
+		margin-left: calc(-33.333%/2);
+		font-size: .85rem;
+		line-height: 22px;
+		background-color: #fff;
+	}
+}
+
+.caracteristicas {
+	margin-top: 30px;
+
+	li {
+		display: table;
+		border-bottom: $border-col;
+		margin-bottom: 1px;
+		width: 100%;
+
+		span {
+			display: table-cell;
+			font-size: 1rem;
+			padding: 12px 20px;
+
+
+			&:first-child {
+				font-weight: $regular;
+				background-color: #f5f5f5;
+				width: 220px;
+				vertical-align: top;
+			}
+		}
+	}
+}
